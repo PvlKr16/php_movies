@@ -1,0 +1,12 @@
+{#<h1>WELCOME!</h1>#}
+{#<div>#}
+{#    {{ dump(title) }}#}
+{#</div>#}
+
+{% if title %}
+    <p>{{ title }} is a movie</p>
+{% else %}
+    <p>
+        Oops, no title has been set.
+    </p>
+{% endif %}
