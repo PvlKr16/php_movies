@@ -3,10 +3,23 @@
 {#    {{ dump(title) }}#}
 {#</div>#}
 
-{% if title %}
-    <p>{{ title }} is a movie</p>
-{% else %}
-    <p>
-        Oops, no title has been set.
-    </p>
-{% endif %}
+{#{% if title %}#}
+{#    <p>{{ title }} is a movie</p>#}
+{#{% else %}#}
+{#    <p>#}
+{#        Oops, no title has been set.#}
+{#    </p>#}
+{#{% endif %}#}
+
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Movies Page
+{% endblock %}
+
+{% block body %}
+    {{ _charset }} - {{ author }}
+    {% for movie in movies %}
+        <li> {{ movie }} </li>
+    {% endfor %}
+{% endblock %}

@@ -9,8 +9,8 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class MoviesController extends AbstractController
 {
-    #[Route('/movies/{name}', name: 'movies', defaults: ['name' => null], methods:['GET', 'HEAD'])]
-    public function index($name): JsonResponse
+    #[Route('/movie/{name}', name: 'movie', defaults: ['name' => null], methods:['GET', 'HEAD'])]
+    public function movie($name): JsonResponse
     {
         return $this->json([
             # 'message' => 'Welcome to your new controller!',
@@ -18,11 +18,11 @@ class MoviesController extends AbstractController
             'path' => 'src/Controller/MoviesController.php',
         ]);
     }
-    #[Route('/movie', name: 'movie')]
-    public function movie(): Response
+    #[Route('/movies', name: 'movies')]
+    public function index(): Response
     {
-        return $this->render('index.html.twig', [
-            'title' => 'Inception',
-        ]);
+        $movies = ["Avengers: Endgame", "Inception", "Loki", "Black Widow"];
+
+        return $this->render('index.html.twig', array('movies' => $movies));
     }
 }
