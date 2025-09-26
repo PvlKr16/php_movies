@@ -38,7 +38,7 @@ class MoviesController extends AbstractController
     {
         $repository = $this->em->getRepository(Movie::class);
         $movies = $repository->findAll();
-        dd($movies);
+        # dd($movies);
         return $this->render('index.html.twig', array('movies' => $movies));
     }
 }
