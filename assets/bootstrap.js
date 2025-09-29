@@ -1,5 +1,18 @@
-import { startStimulusApp } from '@symfony/stimulus-bundle';
+// assets/bootstrap.js
 
-const app = startStimulusApp();
-// register any custom, 3rd party controllers here
-// app.register('some_controller_name', SomeImportedController);
+// Импорт основных стилей (если есть)
+import './styles/app.css'
+
+// Импорт Stimulus
+import { Application } from '@hotwired/stimulus'
+import { definitionsFromContext } from '@hotwired/stimulus-webpack-helpers'
+
+// Инициализация Stimulus
+const application = new Application()
+
+// Автоматическая загрузка всех контроллеров из папки ./controllers
+const context = require.context('./controllers', true, /\.js$/)
+application.load(definitionsFromContext(context))
+
+// Любые другие глобальные импорты или настройки можно добавить ниже
+console.log('Bootstrap loaded')

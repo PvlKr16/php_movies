@@ -7,4 +7,7 @@ import './bootstrap.js';
  */
 import './styles/app.css';
 
+// Compile new JavaScript file
+import './javascript/method1.js';
+
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
